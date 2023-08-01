@@ -1,35 +1,37 @@
-export default class Duck{
-  static className: string = 'Duck'
-  
-  constructor(protected wrappedAge: number){
-    this.wrappedAge = wrappedAge
+export default abstract class Duck {
+  static className: string = 'Duck';
+  color: string;
+
+  constructor(protected wrappedAge: number, color: string) {
+    this.wrappedAge = wrappedAge;
+    this.color = color;
   }
 
   get age(): number {
-    return this.wrappedAge
+    return this.wrappedAge;
   }
-  
+
   set age(value: number) {
-    this.wrappedAge = value > 0 ? value : this.wrappedAge
+    this.wrappedAge = value > 0 ? value : this.wrappedAge;
 
     // if(value > 0){
     //   this.wrappedAge = value
     // }
   }
 
-  quack():void{
-    console.log('Duck Quack')
-  }
-
+  abstract quack(): void;
+  abstract swim(): void;
+  abstract fly(): void;
 }
-const duck = new Duck(3)
 
-console.log(duck.age)
+// const duck = new Duck(3, 'blue')
 
-duck.age = 4
+// console.log(duck.age)
 
-console.log(duck.age)
+// duck.age = 4
 
-console.log(Duck.className)
+// console.log(duck.age)
 
-duck.quack()
+// console.log(Duck.className)
+
+// duck.quack()

@@ -1,9 +1,9 @@
 import Duck from './Duck'
 
-class RedHeadedDuck extends Duck{ 
+export default class RedHeadedDuck extends Duck{ 
 
   constructor(public color:string, age: number){
-    super(age)
+    super(age, color)
     this.color = color
   }
   
@@ -14,6 +14,15 @@ class RedHeadedDuck extends Duck{
   override quack(): void {
     console.log('Redheaded Duck Quack')
   }
+
+  swim():void{
+    console.log('Swimming Like a readHeaded Duck')
+  }
+
+  fly() : void{
+    console.log('Flying like Like RedHead4')
+  }
 }
 
-const redHeadDuck = new RedHeadedDuck('red',1)
+// const redHeadDuck = new RedHeadedDuck('red',1)
+

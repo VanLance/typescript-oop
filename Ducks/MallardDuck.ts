@@ -1,11 +1,15 @@
 import Duck from './Duck';
 
-class MallardDuck extends Duck {
+export default class MallardDuck extends Duck {
   static className = 'MallardDuck';
 
-  constructor(public color: string, age: number) {
-    super(age);
+  constructor(public color: string, duckAge: number) {
+    super(duckAge, color);
     this.color = color;
+  }
+
+  get age():number {
+    return this.wrappedAge
   }
 
   set age(newAge: number) {
@@ -17,12 +21,20 @@ class MallardDuck extends Duck {
   override quack(): void {
     console.log("Mallard Duck Quack")
   }
+  
+  swim(): void {
+    console.log('Swimming Like a Mallard')
+  }
+
+  fly(): void {
+    console.log('Flying lie a Mallard')
+  }
 }
 
-const mallardDuck = new MallardDuck('brown', 4);
 
+const mallardDuck = new MallardDuck('brown', 4)
 console.log(MallardDuck.className);
 
 console.log(mallardDuck.age = 1);
-
+console.log(mallardDuck.age,'age=========')
 mallardDuck.quack()
